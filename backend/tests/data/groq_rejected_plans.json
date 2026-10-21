@@ -1,0 +1,647 @@
+{
+  "provenance": "Seven partial plans captured from real openai/gpt-oss-20b responses. No API call during replay. The capture omitted selected_product_id and referenced_product_ids: null/[] are reconstruction defaults, not captured values. Pre-turn context reconstructed from saved filters, preferences, dialogue and shown cards.",
+  "cases": [
+    {
+      "step": 2,
+      "message": "Бажано Nike, розмір 43",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle"
+        },
+        "preferences": {},
+        "dialogue": {
+          "intent": "recommend",
+          "missing": [
+            "eu_size"
+          ],
+          "last_question": {
+            "kind": "eu_size",
+            "text": "Який EU-розмір перевірити?"
+          },
+          "transition": "refine"
+        },
+        "products": [],
+        "shown_product_ids": [],
+        "clarification": {
+          "selected_product_id": null
+        }
+      },
+      "plan": {
+        "intent": "recommend",
+        "transition": "refine",
+        "changes": [
+          {
+            "field": "brand",
+            "operation": "set",
+            "value": "Nike",
+            "evidence": "Nike"
+          },
+          {
+            "field": "size",
+            "operation": "set",
+            "value": 43,
+            "evidence": "різмір 43"
+          }
+        ],
+        "actions": [
+          {
+            "tool": "recommend_products",
+            "product_ids": [],
+            "model_queries": []
+          }
+        ],
+        "question": null,
+        "reply_plan": [
+          {
+            "kind": "more_results",
+            "product_ids": [],
+            "fact_fields": []
+          }
+        ],
+        "unresolved_preferences": [],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": false
+    },
+    {
+      "step": 3,
+      "message": "До 150 доларів",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle",
+          "size": 43.0
+        },
+        "preferences": {
+          "brand": "Nike"
+        },
+        "dialogue": {
+          "intent": "recommend",
+          "missing": [],
+          "last_question": null,
+          "transition": "new_task"
+        },
+        "products": [
+          {
+            "id": 2,
+            "brand": "Nike",
+            "name": "Dunk Low Retro"
+          },
+          {
+            "id": 20,
+            "brand": "Nike",
+            "name": "Air Force 1 '07"
+          },
+          {
+            "id": 8,
+            "brand": "Adidas",
+            "name": "Campus 00s"
+          }
+        ],
+        "shown_product_ids": [
+          2,
+          20,
+          8
+        ],
+        "clarification": {
+          "selected_product_id": null
+        }
+      },
+      "plan": {
+        "intent": "recommend",
+        "transition": "refine",
+        "changes": [
+          {
+            "field": "brand",
+            "operation": "set",
+            "value": "Nike",
+            "evidence": "Nike"
+          },
+          {
+            "field": "size",
+            "operation": "set",
+            "value": 43,
+            "evidence": "43.0"
+          },
+          {
+            "field": "use_case",
+            "operation": "set",
+            "value": "Lifestyle",
+            "evidence": "Lifestyle"
+          },
+          {
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "До 150 доларів"
+          },
+          {
+            "field": "currency",
+            "operation": "set",
+            "value": "USD",
+            "evidence": "USD"
+          }
+        ],
+        "actions": [
+          {
+            "tool": "recommend_products",
+            "product_ids": [],
+            "model_queries": []
+          }
+        ],
+        "question": null,
+        "reply_plan": [
+          {
+            "kind": "catalog_results",
+            "product_ids": [],
+            "fact_fields": []
+          }
+        ],
+        "unresolved_preferences": [],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": true
+    },
+    {
+      "step": 5,
+      "message": "Порівняй ці дві моделі",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle",
+          "size": 43.0,
+          "currency": "USD",
+          "max_price": 150.0
+        },
+        "preferences": {
+          "brand": "Nike"
+        },
+        "dialogue": {
+          "intent": "clarification",
+          "missing": [
+            "criterion"
+          ],
+          "last_question": {
+            "kind": "criterion",
+            "text": "Не буду припускати властивості взуття: можу спиратися лише на відомості каталогу. Що для вас важливіше у виборі?"
+          },
+          "transition": "refine",
+          "unresolved_preferences": [
+            "зручніше"
+          ]
+        },
+        "products": [
+          {
+            "id": 2,
+            "brand": "Nike",
+            "name": "Dunk Low Retro"
+          },
+          {
+            "id": 20,
+            "brand": "Nike",
+            "name": "Air Force 1 '07"
+          },
+          {
+            "id": 8,
+            "brand": "Adidas",
+            "name": "Campus 00s"
+          }
+        ],
+        "shown_product_ids": [
+          2,
+          20,
+          8
+        ],
+        "clarification": {
+          "selected_product_id": null
+        }
+      },
+      "plan": {
+        "intent": "compare",
+        "transition": "refine",
+        "changes": [
+          {
+            "field": "brand",
+            "operation": "set",
+            "value": "Nike",
+            "evidence": "Nike"
+          },
+          {
+            "field": "size",
+            "operation": "set",
+            "value": 43,
+            "evidence": "43.0"
+          },
+          {
+            "field": "use_case",
+            "operation": "set",
+            "value": "Lifestyle",
+            "evidence": "Lifestyle"
+          }
+        ],
+        "actions": [
+          {
+            "tool": "recommend_products",
+            "product_ids": [],
+            "model_queries": [
+              "Dunk Low Retro",
+              "Air Force 1 '07"
+            ]
+          }
+        ],
+        "question": {
+          "kind": "criterion",
+          "reason": "missing"
+        },
+        "reply_plan": [
+          {
+            "kind": "clarification",
+            "product_ids": [],
+            "fact_fields": []
+          },
+          {
+            "kind": "catalog_results",
+            "product_ids": [
+              2,
+              20
+            ],
+            "fact_fields": [
+              "brand",
+              "name",
+              "price",
+              "available_sizes",
+              "total_stock",
+              "color",
+              "use_case",
+              "features",
+              "variants"
+            ]
+          }
+        ],
+        "unresolved_preferences": [
+          "зручніше"
+        ],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": false
+    },
+    {
+      "step": 6,
+      "message": "А якщо Adidas?",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle",
+          "size": 43.0,
+          "currency": "USD",
+          "max_price": 150.0
+        },
+        "preferences": {
+          "brand": "Nike"
+        },
+        "dialogue": {
+          "intent": "compare",
+          "missing": [
+            "comparison_models"
+          ],
+          "last_question": {
+            "kind": "comparison_models",
+            "text": "Які дві моделі порівняти: Nike Dunk Low Retro; Nike Air Force 1 '07; Adidas Campus 00s?"
+          },
+          "transition": "continue",
+          "unresolved_preferences": [
+            "зручніше"
+          ]
+        },
+        "products": [
+          {
+            "id": 2,
+            "brand": "Nike",
+            "name": "Dunk Low Retro"
+          },
+          {
+            "id": 20,
+            "brand": "Nike",
+            "name": "Air Force 1 '07"
+          },
+          {
+            "id": 8,
+            "brand": "Adidas",
+            "name": "Campus 00s"
+          }
+        ],
+        "shown_product_ids": [
+          2,
+          20,
+          8
+        ],
+        "clarification": {
+          "selected_product_id": null
+        }
+      },
+      "plan": {
+        "intent": "compare",
+        "transition": "refine",
+        "changes": [
+          {
+            "field": "brand",
+            "operation": "set",
+            "value": "Adidas",
+            "evidence": "Adidas"
+          }
+        ],
+        "actions": [
+          {
+            "tool": "recommend_products",
+            "model_queries": [
+              "Adidas",
+              "Nike"
+            ],
+            "product_ids": []
+          },
+          {
+            "tool": "search_products",
+            "model_queries": [
+              "Adidas",
+              "Nike"
+            ],
+            "product_ids": []
+          },
+          {
+            "tool": "get_product_details",
+            "model_queries": [],
+            "product_ids": [
+              8,
+              2
+            ]
+          }
+        ],
+        "question": null,
+        "reply_plan": [
+          {
+            "kind": "catalog_results",
+            "product_ids": [
+              8,
+              2
+            ],
+            "fact_fields": []
+          },
+          {
+            "kind": "acknowledge",
+            "product_ids": [],
+            "fact_fields": []
+          },
+          {
+            "kind": "clarification",
+            "product_ids": [],
+            "fact_fields": []
+          }
+        ],
+        "unresolved_preferences": [
+          "зручніше"
+        ],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": false
+    },
+    {
+      "step": 8,
+      "message": "Покажи дешевші",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle",
+          "size": 43.0,
+          "currency": "USD",
+          "max_price": 150.0,
+          "brand": "Nike"
+        },
+        "preferences": {},
+        "dialogue": {
+          "intent": "compare",
+          "missing": [],
+          "last_question": null,
+          "transition": "refine",
+          "unresolved_preferences": [
+            "зручніше"
+          ]
+        },
+        "products": [
+          {
+            "id": 2,
+            "brand": "Nike",
+            "name": "Dunk Low Retro"
+          },
+          {
+            "id": 20,
+            "brand": "Nike",
+            "name": "Air Force 1 '07"
+          }
+        ],
+        "shown_product_ids": [
+          2,
+          20,
+          8,
+          28
+        ],
+        "clarification": {
+          "selected_product_id": null
+        }
+      },
+      "plan": {
+        "intent": "recommend",
+        "transition": "refine",
+        "changes": [
+          {
+            "field": "max_price",
+            "operation": "set",
+            "value": 120.0,
+            "evidence": "Покажи дешевші"
+          }
+        ],
+        "actions": [
+          {
+            "tool": "recommend_products",
+            "product_ids": [],
+            "model_queries": []
+          }
+        ],
+        "question": null,
+        "reply_plan": [
+          {
+            "kind": "catalog_results",
+            "product_ids": [],
+            "fact_fields": []
+          }
+        ],
+        "unresolved_preferences": [
+          "зручніше"
+        ],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": false
+    },
+    {
+      "step": 9,
+      "message": "Беру Dunk Low, 43 розмір",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle",
+          "size": 43.0,
+          "currency": "USD",
+          "max_price": 150.0,
+          "brand": "Nike"
+        },
+        "preferences": {},
+        "dialogue": {
+          "intent": "compare",
+          "missing": [],
+          "last_question": null,
+          "transition": "continue",
+          "unresolved_preferences": [
+            "зручніше"
+          ]
+        },
+        "products": [
+          {
+            "id": 2,
+            "brand": "Nike",
+            "name": "Dunk Low Retro"
+          },
+          {
+            "id": 20,
+            "brand": "Nike",
+            "name": "Air Force 1 '07"
+          }
+        ],
+        "shown_product_ids": [
+          2,
+          20,
+          8,
+          28
+        ],
+        "clarification": {
+          "selected_product_id": null
+        }
+      },
+      "plan": {
+        "intent": "compare",
+        "transition": "continue",
+        "changes": [
+          {
+            "field": "size",
+            "operation": "set",
+            "value": 43.0,
+            "evidence": "43 розмір"
+          },
+          {
+            "field": "name_query",
+            "operation": "set",
+            "value": "Dunk Low Retro",
+            "evidence": "Dunk Low Retro"
+          }
+        ],
+        "actions": [],
+        "question": null,
+        "reply_plan": [
+          {
+            "kind": "acknowledge",
+            "product_ids": [
+              2
+            ],
+            "fact_fields": []
+          },
+          {
+            "kind": "clarification",
+            "product_ids": [],
+            "fact_fields": []
+          }
+        ],
+        "unresolved_preferences": [
+          "зручніше"
+        ],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": false
+    },
+    {
+      "step": 11,
+      "message": "Хочу оформити замовлення",
+      "state": {
+        "filters": {
+          "use_case": "Lifestyle",
+          "size": 43.0,
+          "currency": "USD",
+          "max_price": 150.0,
+          "brand": "Nike",
+          "name_query": "Dunk Low Retro"
+        },
+        "preferences": {},
+        "dialogue": {
+          "intent": "price",
+          "missing": [],
+          "last_question": null,
+          "transition": "continue",
+          "unresolved_preferences": [
+            "зручніше"
+          ],
+          "selected_task": {
+            "product_id": 2,
+            "filters": {
+              "use_case": "Lifestyle",
+              "size": 43.0,
+              "currency": "USD",
+              "max_price": 150.0,
+              "brand": "Nike",
+              "name_query": "Dunk Low Retro"
+            },
+            "measurement": null
+          }
+        },
+        "products": [
+          {
+            "id": 2,
+            "brand": "Nike",
+            "name": "Dunk Low Retro"
+          }
+        ],
+        "shown_product_ids": [
+          2,
+          20,
+          8,
+          28
+        ],
+        "clarification": {
+          "selected_product_id": 2
+        }
+      },
+      "plan": {
+        "intent": "order",
+        "transition": "new_task",
+        "changes": [],
+        "actions": [],
+        "question": null,
+        "reply_plan": [
+          {
+            "kind": "acknowledge",
+            "product_ids": [],
+            "fact_fields": []
+          },
+          {
+            "kind": "clarification",
+            "product_ids": [],
+            "fact_fields": []
+          }
+        ],
+        "unresolved_preferences": [
+          "зручніше"
+        ],
+        "selected_product_id": null,
+        "referenced_product_ids": []
+      },
+      "accepted_after": false
+    }
+  ]
+}
